@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
+    <link rel="icon" href="image.png" type="image/png"> <!-- Custom Favicon added -->
     <style>
         body {
             text-align: center;
@@ -60,9 +61,11 @@
             animation: bounce 0.5s infinite;
         }
         .confetti {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             overflow: hidden;
         }
@@ -82,7 +85,7 @@
 
         function showLove() {
             document.getElementById("question").innerHTML = "YAY!! FINALLYYYYYYYYY. I LOVE YOU MY KUCHIPUCHI ❤️";
-            document.getElementById("gif").src = "https://media1.tenor.com/m/JYO19gFdlN4AAAAC/kiss.gif";
+            document.getElementById("gif").src = "https://media.tenor.com/amRuuQRN6d0AAAAi/love.gif"; // New Yes GIF
             document.getElementById("buttons").innerHTML = '<button class="yes bouncing-yes">Yes</button>';
             launchConfetti();
         }
@@ -103,35 +106,34 @@
         }
 
         function launchConfetti() {
-    const confettiContainer = document.createElement("div");
-    confettiContainer.className = "confetti";
-    confettiContainer.style.position = "fixed"; // Ensure full-screen effect
-    confettiContainer.style.top = "0";
-    confettiContainer.style.left = "0";
-    confettiContainer.style.width = "100vw";
-    confettiContainer.style.height = "100vh";
-    confettiContainer.style.pointerEvents = "none";
-    document.body.appendChild(confettiContainer);
+            const confettiContainer = document.createElement("div");
+            confettiContainer.className = "confetti";
+            confettiContainer.style.position = "fixed"; // Ensure full-screen effect
+            confettiContainer.style.top = "0";
+            confettiContainer.style.left = "0";
+            confettiContainer.style.width = "100vw";
+            confettiContainer.style.height = "100vh";
+            confettiContainer.style.pointerEvents = "none";
+            document.body.appendChild(confettiContainer);
 
-    const emojis = ["❤️", "🌻", "🌷", "🎉", "💖"];
-    for (let i = 0; i < 150; i++) { // Increased intensity
-        let confetti = document.createElement("div");
-        confetti.className = "emoji";
-        confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-        confetti.style.left = Math.random() * 100 + "%";
-        confetti.style.fontSize = Math.random() * 30 + 20 + "px"; // Varying sizes
-        confetti.style.animationDuration = Math.random() * 2 + 1.5 + "s"; // Faster fall
-        confetti.style.animationDelay = Math.random() * 2 + "s"; // Staggered effect
-        confetti.style.opacity = Math.random() * 0.9 + 0.1; // Random transparency
-        confettiContainer.appendChild(confetti);
-    }
-}
-
+            const emojis = ["❤️", "🌻", "🌷", "🎉", "💖"];
+            for (let i = 0; i < 150; i++) { // Increased intensity
+                let confetti = document.createElement("div");
+                confetti.className = "emoji";
+                confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * 100 + "%";
+                confetti.style.fontSize = Math.random() * 30 + 20 + "px"; // Varying sizes
+                confetti.style.animationDuration = Math.random() * 2 + 1.5 + "s"; // Faster fall
+                confetti.style.animationDelay = Math.random() * 2 + "s"; // Staggered effect
+                confetti.style.opacity = Math.random() * 0.9 + 0.1; // Random transparency
+                confettiContainer.appendChild(confetti);
+            }
+        }
     </script>
 </head>
 <body>
     <div class="container">
-        <img id="gif" class="gif" src="https://media.tenor.com/amRuuQRN6d0AAAAi/love.gif" alt="Cute GIF">
+        <img id="gif" class="gif" src="https://media1.tenor.com/m/JYO19gFdlN4AAAAC/kiss.gif" alt="Cute GIF"> <!-- New Initial GIF -->
         <p id="question" class="question">Will you be my Valentine? 💕</p>
         <div id="buttons" class="buttons">
             <button class="yes" onclick="showLove()">Yes</button>
